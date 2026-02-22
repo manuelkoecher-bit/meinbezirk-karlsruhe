@@ -11,33 +11,33 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --black: #111111;
-    --dark:  #222222;
-    --mid:   #666666;
-    --light: #999999;
-    --rule:  #e0e0e0;
-    --bg:    #fafaf8;
-    --white: #ffffff;
-    --tag-bg: #f0f0ee;
-  }
+:root {
+--black: #111111;
+--dark:  #222222;
+--mid:   #666666;
+--light: #999999;
+--rule:  #e0e0e0;
+--bg:    #fafaf8;
+--white: #ffffff;
+--tag-bg: #f0f0ee;
+}
 
 body {
 font-family: ‘Inter’, sans-serif;
-background: var(–bg);
-color: var(–dark);
+background: var(--bg);
+color: var(--dark);
 line-height: 1.6;
 -webkit-font-smoothing: antialiased;
 }
 
 /* HEADER */
 header {
-border-bottom: 1px solid var(–rule);
+border-bottom: 1px solid var(--rule);
 padding: 20px 40px;
 display: flex;
 align-items: baseline;
 justify-content: space-between;
-background: var(–white);
+background: var(--white);
 position: sticky;
 top: 0;
 z-index: 50;
@@ -47,13 +47,13 @@ z-index: 50;
 font-family: ‘EB Garamond’, serif;
 font-size: 22px;
 font-weight: 500;
-color: var(–black);
+color: var(--black);
 letter-spacing: -0.01em;
 }
 
 .site-meta {
 font-size: 12px;
-color: var(–light);
+color: var(--light);
 font-weight: 300;
 }
 
@@ -68,11 +68,11 @@ padding: 80px 40px 60px;
 font-family: ‘EB Garamond’, serif;
 font-size: 18px;
 font-style: italic;
-color: var(–mid);
+color: var(--mid);
 line-height: 1.7;
 margin-bottom: 48px;
 padding-left: 20px;
-border-left: 2px solid var(–rule);
+border-left: 2px solid var(--rule);
 }
 
 .hero h1 {
@@ -80,7 +80,7 @@ font-family: ‘EB Garamond’, serif;
 font-size: clamp(36px, 5vw, 56px);
 font-weight: 500;
 line-height: 1.1;
-color: var(–black);
+color: var(--black);
 letter-spacing: -0.02em;
 margin-bottom: 24px;
 }
@@ -88,16 +88,16 @@ margin-bottom: 24px;
 .hero p {
 font-size: 17px;
 font-weight: 300;
-color: var(–mid);
+color: var(--mid);
 line-height: 1.75;
 max-width: 560px;
 }
 
 /* HOW IT WORKS */
 .how-section {
-border-top: 1px solid var(–rule);
-border-bottom: 1px solid var(–rule);
-background: var(–white);
+border-top: 1px solid var(--rule);
+border-bottom: 1px solid var(--rule);
+background: var(--white);
 padding: 48px 40px;
 }
 
@@ -111,7 +111,7 @@ font-size: 11px;
 font-weight: 500;
 letter-spacing: 0.12em;
 text-transform: uppercase;
-color: var(–light);
+color: var(--light);
 margin-bottom: 32px;
 }
 
@@ -124,7 +124,7 @@ gap: 40px;
 .how-num {
 font-family: ‘EB Garamond’, serif;
 font-size: 13px;
-color: var(–light);
+color: var(--light);
 margin-bottom: 10px;
 }
 
@@ -132,14 +132,14 @@ margin-bottom: 10px;
 font-family: ‘EB Garamond’, serif;
 font-size: 20px;
 font-weight: 500;
-color: var(–black);
+color: var(--black);
 margin-bottom: 8px;
 line-height: 1.2;
 }
 
 .how-step p {
 font-size: 13px;
-color: var(–mid);
+color: var(--mid);
 font-weight: 300;
 line-height: 1.65;
 }
@@ -154,7 +154,7 @@ padding: 56px 40px 40px;
 .filter-intro {
 font-size: 13px;
 font-weight: 500;
-color: var(–mid);
+color: var(--mid);
 letter-spacing: 0.06em;
 text-transform: uppercase;
 margin-bottom: 28px;
@@ -164,7 +164,7 @@ margin-bottom: 28px;
 font-weight: 300;
 letter-spacing: 0;
 text-transform: none;
-color: var(–light);
+color: var(--light);
 }
 
 .filter-groups {
@@ -179,7 +179,7 @@ font-size: 11px;
 font-weight: 500;
 letter-spacing: 0.1em;
 text-transform: uppercase;
-color: var(–light);
+color: var(--light);
 margin-bottom: 14px;
 }
 
@@ -194,21 +194,21 @@ display: inline-block;
 font-size: 13px;
 font-weight: 400;
 padding: 5px 12px;
-border: 1px solid var(–rule);
+border: 1px solid var(--rule);
 border-radius: 2px;
-background: var(–white);
-color: var(–dark);
+background: var(--white);
+color: var(--dark);
 cursor: pointer;
 transition: all 0.15s ease;
 user-select: none;
 }
 
-.tag:hover { border-color: var(–black); color: var(–black); }
+.tag:hover { border-color: var(--black); color: var(--black); }
 
 .tag.selected {
-background: var(–black);
-color: var(–white);
-border-color: var(–black);
+background: var(--black);
+color: var(--white);
+border-color: var(--black);
 padding-left: 10px;
 padding-right: 10px;
 }
@@ -218,11 +218,11 @@ padding-right: 10px;
 display: none;
 margin-top: 16px;
 padding: 12px 16px;
-background: var(–white);
-border: 1px solid var(–black);
+background: var(--white);
+border: 1px solid var(--black);
 border-radius: 2px;
 font-size: 13px;
-color: var(–dark);
+color: var(--dark);
 align-items: center;
 justify-content: space-between;
 gap: 12px;
@@ -237,9 +237,9 @@ gap: 12px;
 font-family: ‘Inter’, sans-serif;
 font-size: 12px;
 font-weight: 400;
-color: var(–mid);
+color: var(--mid);
 background: none;
-border: 1px solid var(–rule);
+border: 1px solid var(--rule);
 border-radius: 2px;
 padding: 4px 12px;
 cursor: pointer;
@@ -247,11 +247,11 @@ white-space: nowrap;
 transition: all 0.15s;
 }
 
-.filter-reset-btn:hover { border-color: var(–black); color: var(–black); }
+.filter-reset-btn:hover { border-color: var(--black); color: var(--black); }
 
 /* FEED */
 .feed-section {
-border-top: 1px solid var(–rule);
+border-top: 1px solid var(--rule);
 max-width: 720px;
 margin: 0 auto;
 padding: 0 40px 100px;
@@ -262,7 +262,7 @@ display: flex;
 align-items: baseline;
 justify-content: space-between;
 padding: 28px 0 0;
-border-bottom: 1px solid var(–rule);
+border-bottom: 1px solid var(--rule);
 margin-bottom: 0;
 padding-bottom: 20px;
 }
@@ -271,18 +271,18 @@ padding-bottom: 20px;
 font-family: ‘EB Garamond’, serif;
 font-size: 20px;
 font-weight: 500;
-color: var(–black);
+color: var(--black);
 }
 
 .feed-count {
 font-size: 12px;
-color: var(–light);
+color: var(--light);
 font-weight: 300;
 }
 
 /* ENTRY */
 .entry {
-border-bottom: 1px solid var(–rule);
+border-bottom: 1px solid var(--rule);
 padding: 36px 0;
 display: grid;
 grid-template-columns: 160px 1fr;
@@ -296,14 +296,14 @@ font-size: 11px;
 font-weight: 500;
 letter-spacing: 0.08em;
 text-transform: uppercase;
-color: var(–light);
+color: var(--light);
 margin-bottom: 6px;
 display: block;
 }
 
 .entry-when {
 font-size: 12px;
-color: var(–mid);
+color: var(--mid);
 font-weight: 300;
 line-height: 1.5;
 }
@@ -325,7 +325,7 @@ margin-bottom: 12px;
 font-family: ‘EB Garamond’, serif;
 font-size: 24px;
 font-weight: 500;
-color: var(–black);
+color: var(--black);
 line-height: 1.25;
 letter-spacing: -0.01em;
 margin-bottom: 12px;
@@ -333,7 +333,7 @@ margin-bottom: 12px;
 
 .entry-body {
 font-size: 14px;
-color: var(–mid);
+color: var(--mid);
 line-height: 1.75;
 font-weight: 300;
 margin-bottom: 14px;
@@ -341,7 +341,7 @@ margin-bottom: 14px;
 
 .entry-source {
 font-size: 12px;
-color: var(–light);
+color: var(--light);
 font-weight: 300;
 margin-bottom: 12px;
 display: flex;
@@ -354,7 +354,7 @@ content: ‘’;
 display: inline-block;
 width: 16px;
 height: 1px;
-background: var(–rule);
+background: var(--rule);
 flex-shrink: 0;
 }
 
@@ -366,8 +366,8 @@ gap: 6px;
 
 .entry-tag {
 font-size: 11px;
-color: var(–mid);
-background: var(–tag-bg);
+color: var(--mid);
+background: var(--tag-bg);
 padding: 3px 9px;
 border-radius: 2px;
 }
@@ -376,7 +376,7 @@ border-radius: 2px;
 .no-results {
 padding: 60px 0;
 text-align: center;
-color: var(–light);
+color: var(--light);
 font-family: ‘EB Garamond’, serif;
 font-size: 20px;
 font-style: italic;
@@ -385,8 +385,8 @@ display: none;
 
 /* CTA */
 .cta-section {
-border-top: 1px solid var(–rule);
-background: var(–white);
+border-top: 1px solid var(--rule);
+background: var(--white);
 padding: 64px 40px;
 }
 
@@ -396,13 +396,13 @@ padding: 64px 40px;
 font-family: ‘EB Garamond’, serif;
 font-size: 30px;
 font-weight: 500;
-color: var(–black);
+color: var(--black);
 margin-bottom: 10px;
 }
 
 .cta-inner p {
 font-size: 14px;
-color: var(–mid);
+color: var(--mid);
 font-weight: 300;
 margin-bottom: 24px;
 }
@@ -414,23 +414,23 @@ font-family: ‘Inter’, sans-serif;
 font-size: 14px;
 font-weight: 300;
 padding: 10px 16px;
-border: 1px solid var(–rule);
-background: var(–bg);
+border: 1px solid var(--rule);
+background: var(--bg);
 border-radius: 2px;
 outline: none;
 width: 260px;
 transition: border-color 0.15s;
 }
 
-.cta-form input:focus { border-color: var(–black); }
+.cta-form input:focus { border-color: var(--black); }
 
 .cta-form button {
 font-family: ‘Inter’, sans-serif;
 font-size: 13px;
 font-weight: 500;
 padding: 10px 22px;
-background: var(–black);
-color: var(–white);
+background: var(--black);
+color: var(--white);
 border: none;
 border-radius: 2px;
 cursor: pointer;
@@ -439,19 +439,19 @@ transition: opacity 0.15s;
 
 .cta-form button:hover { opacity: 0.75; }
 
-.cta-sub { font-size: 12px; color: var(–light); margin-top: 12px; font-weight: 300; }
+.cta-sub { font-size: 12px; color: var(--light); margin-top: 12px; font-weight: 300; }
 
 .cta-success {
 display: none;
 font-family: ‘EB Garamond’, serif;
 font-size: 20px;
-color: var(–black);
+color: var(--black);
 font-style: italic;
 }
 
 /* FOOTER */
 footer {
-border-top: 1px solid var(–rule);
+border-top: 1px solid var(--rule);
 padding: 28px 40px;
 display: flex;
 align-items: center;
@@ -460,9 +460,9 @@ flex-wrap: wrap;
 gap: 12px;
 }
 
-footer p { font-size: 12px; color: var(–light); font-weight: 300; line-height: 1.7; }
-footer a { color: var(–mid); text-decoration: none; }
-footer a:hover { color: var(–black); }
+footer p { font-size: 12px; color: var(--light); font-weight: 300; line-height: 1.7; }
+footer a { color: var(--mid); text-decoration: none; }
+footer a:hover { color: var(--black); }
 
 /* RESPONSIVE */
 @media (max-width: 680px) {
@@ -743,7 +743,7 @@ footer { padding: 20px; flex-direction: column; }
     </div>
     <div class="entry-right">
       <span class="entry-status status-planned">Beschlossen</span>
-      <h2>Radschnellweg Karlsruhe–Ettlingen: Planung abgeschlossen</h2>
+      <h2>Radschnellweg Karlsruhe--Ettlingen: Planung abgeschlossen</h2>
       <p class="entry-body">Der Planungsausschuss hat den Entwurf für den 12 km langen Radschnellweg genehmigt. Breite: 4 Meter, durchgehend beleuchtet, kreuzungsarm. Baustart Frühjahr 2026, Fertigstellung Ende 2027. Entlang der Strecke werden 8 sichere Abstellanlagen errichtet.</p>
       <p class="entry-source">Planungsausschuss Karlsruhe · 18.09.2025 · TOP 3</p>
       <div class="entry-tags">
@@ -780,7 +780,7 @@ footer { padding: 20px; flex-direction: column; }
     </div>
     <div class="entry-right">
       <span class="entry-status status-planned">Beschlossen</span>
-      <h2>Radweg Grötzingen–Durlach: Lücke im Netz wird geschlossen</h2>
+      <h2>Radweg Grötzingen--Durlach: Lücke im Netz wird geschlossen</h2>
       <p class="entry-body">Ein 1,8 km langer asphaltierter Weg entlang der Pfinz wird gebaut — eine täglich genutzte Pendlerstrecke für rund 800 Radfahrer:innen. Kosten: 420.000 €. Der Ortschaftsrat Grötzingen hatte den Bedarf seit Jahren angemeldet.</p>
       <p class="entry-source">Ortschaftsrat Grötzingen / Planungsausschuss · Dezember 2025</p>
       <div class="entry-tags">
@@ -800,7 +800,7 @@ footer { padding: 20px; flex-direction: column; }
     <div class="entry-right">
       <span class="entry-status status-planned">Beschlossen</span>
       <h2>Umbau Marktplatz: Begrünung, Aufenthaltsqualität, weniger Verkehr</h2>
-      <p class="entry-body">Geplant sind 24 neue Stadtbäume, breitere Fußgängerzonen, Abschaffung der Durchfahrt für Lieferverkehr (Ausnahmen bis 10 Uhr), neue Sitzgelegenheiten und ein Trinkbrunnen. Händler:innen erhalten während der Bauphase 2026–2028 Sonderkonditionen für Veranstaltungsgenehmigungen.</p>
+      <p class="entry-body">Geplant sind 24 neue Stadtbäume, breitere Fußgängerzonen, Abschaffung der Durchfahrt für Lieferverkehr (Ausnahmen bis 10 Uhr), neue Sitzgelegenheiten und ein Trinkbrunnen. Händler:innen erhalten während der Bauphase 2026--2028 Sonderkonditionen für Veranstaltungsgenehmigungen.</p>
       <p class="entry-source">Gemeinderat Karlsruhe · 25.11.2025 · TOP 12</p>
       <div class="entry-tags">
         <span class="entry-tag">Gewerbetreibende</span>
@@ -869,7 +869,7 @@ footer { padding: 20px; flex-direction: column; }
   <article class="entry" data-lebenslage="Alle Bürger:innen" data-ort="Stadtweit" data-anlass="Haushalt Radverkehr">
     <div class="entry-left">
       <span class="entry-type">Gemeinderatsbeschluss</span>
-      <span class="entry-when">Umsetzung<br>2026–2030</span>
+      <span class="entry-when">Umsetzung<br>2026--2030</span>
     </div>
     <div class="entry-right">
       <span class="entry-status status-planned">Beschlossen</span>
