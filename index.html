@@ -209,12 +209,8 @@ user-select: none;
 background: var(–black);
 color: var(–white);
 border-color: var(–black);
-}
-
-.tag.selected::after {
-content: ’ ✓’;
-font-size: 11px;
-opacity: 0.8;
+padding-left: 10px;
+padding-right: 10px;
 }
 
 /* AKTIVE FILTER ANZEIGE */
@@ -252,46 +248,6 @@ transition: all 0.15s;
 }
 
 .filter-reset-btn:hover { border-color: var(–black); color: var(–black); }
-
-.tag.selected::before {
-content: ’✓ ’;
-font-size: 11px;
-}
-
-/* ACTIVE FILTER SUMMARY */
-.filter-summary {
-display: none;
-background: #f0f0ee;
-border: 1px solid var(–rule);
-border-radius: 2px;
-padding: 10px 16px;
-font-size: 13px;
-color: var(–mid);
-margin-bottom: 0;
-align-items: center;
-justify-content: space-between;
-gap: 12px;
-}
-
-.filter-summary.visible {
-display: flex;
-}
-
-.filter-summary strong { color: var(–dark); }
-
-.filter-reset {
-font-size: 12px;
-color: var(–mid);
-cursor: pointer;
-text-decoration: underline;
-white-space: nowrap;
-background: none;
-border: none;
-font-family: ‘Inter’, sans-serif;
-padding: 0;
-}
-
-.filter-reset:hover { color: var(–black); }
 
 /* FEED */
 .feed-section {
@@ -564,38 +520,38 @@ footer { padding: 20px; flex-direction: column; }
     <div>
       <div class="filter-group-title">Lebenslage</div>
       <div class="filter-tags">
-        <span class="tag" data-filter="lebenslage" data-val="Eltern / Kita">Eltern / Kita</span>
-        <span class="tag" data-filter="lebenslage" data-val="Eltern / Schule">Eltern / Schule</span>
-        <span class="tag" data-filter="lebenslage" data-val="Mieter:in">Mieter:in</span>
-        <span class="tag" data-filter="lebenslage" data-val="Eigentümer:in">Eigentümer:in</span>
-        <span class="tag" data-filter="lebenslage" data-val="Radfahrer:in">Radfahrer:in</span>
-        <span class="tag" data-filter="lebenslage" data-val="Gewerbetreibende">Gewerbetreibende</span>
-        <span class="tag" data-filter="lebenslage" data-val="Senior:in">Senior:in</span>
-        <span class="tag" data-filter="lebenslage" data-val="Alle Bürger:innen">Alle</span>
+        <span class="tag" data-filter="lebenslage" data-label="Eltern / Kita" data-val="Eltern / Kita">Eltern / Kita</span>
+        <span class="tag" data-filter="lebenslage" data-label="Eltern / Schule" data-val="Eltern / Schule">Eltern / Schule</span>
+        <span class="tag" data-filter="lebenslage" data-label="Mieter:in" data-val="Mieter:in">Mieter:in</span>
+        <span class="tag" data-filter="lebenslage" data-label="Eigentümer:in" data-val="Eigentümer:in">Eigentümer:in</span>
+        <span class="tag" data-filter="lebenslage" data-label="Radfahrer:in" data-val="Radfahrer:in">Radfahrer:in</span>
+        <span class="tag" data-filter="lebenslage" data-label="Gewerbetreibende" data-val="Gewerbetreibende">Gewerbetreibende</span>
+        <span class="tag" data-filter="lebenslage" data-label="Senior:in" data-val="Senior:in">Senior:in</span>
+        <span class="tag" data-filter="lebenslage" data-label="Alle" data-val="Alle Bürger:innen">Alle</span>
       </div>
     </div>
     <div>
       <div class="filter-group-title">Stadtteil</div>
       <div class="filter-tags">
-        <span class="tag" data-filter="ort" data-val="Innenstadt">Innenstadt</span>
-        <span class="tag" data-filter="ort" data-val="Südstadt">Südstadt</span>
-        <span class="tag" data-filter="ort" data-val="Durlach">Durlach</span>
-        <span class="tag" data-filter="ort" data-val="Mühlburg">Mühlburg</span>
-        <span class="tag" data-filter="ort" data-val="Neureut">Neureut</span>
-        <span class="tag" data-filter="ort" data-val="Oberreut">Oberreut</span>
-        <span class="tag" data-filter="ort" data-val="Grötzingen">Grötzingen</span>
-        <span class="tag" data-filter="ort" data-val="Stadtweit">Stadtweit</span>
+        <span class="tag" data-filter="ort" data-label="Innenstadt" data-val="Innenstadt">Innenstadt</span>
+        <span class="tag" data-filter="ort" data-label="Südstadt" data-val="Südstadt">Südstadt</span>
+        <span class="tag" data-filter="ort" data-label="Durlach" data-val="Durlach">Durlach</span>
+        <span class="tag" data-filter="ort" data-label="Mühlburg" data-val="Mühlburg">Mühlburg</span>
+        <span class="tag" data-filter="ort" data-label="Neureut" data-val="Neureut">Neureut</span>
+        <span class="tag" data-filter="ort" data-label="Oberreut" data-val="Oberreut">Oberreut</span>
+        <span class="tag" data-filter="ort" data-label="Grötzingen" data-val="Grötzingen">Grötzingen</span>
+        <span class="tag" data-filter="ort" data-label="Stadtweit" data-val="Stadtweit">Stadtweit</span>
       </div>
     </div>
     <div>
       <div class="filter-group-title">Anlass</div>
       <div class="filter-tags">
-        <span class="tag" data-filter="anlass" data-val="Kita-Anmeldung">Kita-Anmeldung</span>
-        <span class="tag" data-filter="anlass" data-val="Schulanmeldung">Schulanmeldung</span>
-        <span class="tag" data-filter="anlass" data-val="Bauvorhaben">Bauvorhaben</span>
-        <span class="tag" data-filter="anlass" data-val="Radverkehr">Radverkehr</span>
-        <span class="tag" data-filter="anlass" data-val="Wohnen">Wohnen</span>
-        <span class="tag" data-filter="anlass" data-val="Haushalt">Haushalt</span>
+        <span class="tag" data-filter="anlass" data-label="Kita-Anmeldung" data-val="Kita-Anmeldung">Kita-Anmeldung</span>
+        <span class="tag" data-filter="anlass" data-label="Schulanmeldung" data-val="Schulanmeldung">Schulanmeldung</span>
+        <span class="tag" data-filter="anlass" data-label="Bauvorhaben" data-val="Bauvorhaben">Bauvorhaben</span>
+        <span class="tag" data-filter="anlass" data-label="Radverkehr" data-val="Radverkehr">Radverkehr</span>
+        <span class="tag" data-filter="anlass" data-label="Wohnen" data-val="Wohnen">Wohnen</span>
+        <span class="tag" data-filter="anlass" data-label="Haushalt" data-val="Haushalt">Haushalt</span>
       </div>
     </div>
   </div>
@@ -981,10 +937,15 @@ footer { padding: 20px; flex-direction: column; }
 
       if (tag.classList.contains('selected')) {
         tag.classList.remove('selected');
+        tag.textContent = tag.dataset.label;
         selected[type] = null;
       } else {
-        document.querySelectorAll(`.tag[data-filter="${type}"]`).forEach(t => t.classList.remove('selected'));
+        document.querySelectorAll(`.tag[data-filter="${type}"]`).forEach(t => {
+          t.classList.remove('selected');
+          t.textContent = t.dataset.label;
+        });
         tag.classList.add('selected');
+        tag.textContent = '✓ ' + tag.dataset.label;
         selected[type] = val;
       }
       applyFilters();
@@ -1035,7 +996,10 @@ footer { padding: 20px; flex-direction: column; }
     selected.lebenslage = null;
     selected.ort = null;
     selected.anlass = null;
-    document.querySelectorAll('.tag').forEach(t => t.classList.remove('selected'));
+    document.querySelectorAll('.tag').forEach(t => {
+      t.classList.remove('selected');
+      t.textContent = t.dataset.label;
+    });
     applyFilters();
   }
 
