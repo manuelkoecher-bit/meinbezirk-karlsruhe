@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MeinBezirk Karlsruhe — Was der Gemeinderat entscheidet, was Sie betrifft.</title>
+<meta name="description" content="Karlsruher Gemeinderatsbeschlüsse, verständlich aufbereitet. Gefiltert nach dem, was Sie wirklich betrifft.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+–black: #111111;
+–dark:  #222222;
+–mid:   #666666;
+–light: #999999;
+–rule:  #e0e0e0;
+–bg:    #fafaf8;
+–white: #ffffff;
+–tag-bg: #f0f0ee;
+}
+
+body {
+font-family: ‘Inter’, sans-serif;
+background: var(–bg);
+color: var(–dark);
+line-height: 1.6;
+-webkit-font-smoothing: antialiased;
+}
+
+/* HEADER */
+header {
+border-bottom: 1px solid var(–rule);
+padding: 20px 40px;
+display: flex;
+align-items: baseline;
+justify-content: space-between;
+background: var(–white);
+position: sticky;
+top: 0;
+z-index: 50;
+}
+
+.site-name {
+font-family: ‘EB Garamond’, serif;
+font-size: 22px;
+font-weight: 500;
+color: var(–black);
+letter-spacing: -0.01em;
+}
+
+.site-meta {
+font-size: 12px;
+color: var(–light);
+font-weight: 300;
+}
+
+/* HERO */
+.hero {
+max-width: 720px;
+margin: 0 auto;
+padding: 80px 40px 60px;
+}
+
+.hero-quote {
+font-family: ‘EB Garamond’, serif;
+font-size: 18px;
+font-style: italic;
+color: var(–mid);
+line-height: 1.7;
+margin-bottom: 48px;
+padding-left: 20px;
+border-left: 2px solid var(–rule);
+}
+
+.hero h1 {
+font-family: ‘EB Garamond’, serif;
+font-size: clamp(36px, 5vw, 56px);
+font-weight: 500;
+line-height: 1.1;
+color: var(–black);
+letter-spacing: -0.02em;
+margin-bottom: 24px;
+}
+
+.hero p {
+font-size: 17px;
+font-weight: 300;
+color: var(–mid);
+line-height: 1.75;
+max-width: 560px;
+}
+
+/* HOW IT WORKS */
+.how-section {
+border-top: 1px solid var(–rule);
+border-bottom: 1px solid var(–rule);
+background: var(–white);
+padding: 48px 40px;
+}
+
+.how-inner {
+max-width: 720px;
+margin: 0 auto;
+}
+
+.how-label {
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: var(–light);
+margin-bottom: 32px;
+}
+
+.how-steps {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 40px;
+}
+
+.how-num {
+font-family: ‘EB Garamond’, serif;
+font-size: 13px;
+color: var(–light);
+margin-bottom: 10px;
+}
+
+.how-step h3 {
+font-family: ‘EB Garamond’, serif;
+font-size: 20px;
+font-weight: 500;
+color: var(–black);
+margin-bottom: 8px;
+line-height: 1.2;
+}
+
+.how-step p {
+font-size: 13px;
+color: var(–mid);
+font-weight: 300;
+line-height: 1.65;
+}
+
+/* FILTER */
+.filter-section {
+max-width: 720px;
+margin: 0 auto;
+padding: 56px 40px 40px;
+}
+
+.filter-intro {
+font-size: 13px;
+font-weight: 500;
+color: var(–mid);
+letter-spacing: 0.06em;
+text-transform: uppercase;
+margin-bottom: 28px;
+}
+
+.filter-intro span {
+font-weight: 300;
+letter-spacing: 0;
+text-transform: none;
+color: var(–light);
+}
+
+.filter-groups {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 32px;
+margin-bottom: 40px;
+}
+
+.filter-group-title {
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(–light);
+margin-bottom: 14px;
+}
+
+.filter-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 7px;
+}
+
+.tag {
+display: inline-block;
+font-size: 13px;
+font-weight: 400;
+padding: 5px 12px;
+border: 1px solid var(–rule);
+border-radius: 2px;
+background: var(–white);
+color: var(–dark);
+cursor: pointer;
+transition: all 0.15s ease;
+user-select: none;
+}
+
+.tag:hover { border-color: var(–black); color: var(–black); }
+
+.tag.selected {
+background: var(–black);
+color: var(–white);
+border-color: var(–black);
+}
+
+/* FEED */
+.feed-section {
+border-top: 1px solid var(–rule);
+max-width: 720px;
+margin: 0 auto;
+padding: 0 40px 100px;
+}
+
+.feed-header {
+display: flex;
+align-items: baseline;
+justify-content: space-between;
+padding: 28px 0 0;
+border-bottom: 1px solid var(–rule);
+margin-bottom: 0;
+padding-bottom: 20px;
+}
+
+.feed-title {
+font-family: ‘EB Garamond’, serif;
+font-size: 20px;
+font-weight: 500;
+color: var(–black);
+}
+
+.feed-count {
+font-size: 12px;
+color: var(–light);
+font-weight: 300;
+}
+
+/* ENTRY */
+.entry {
+border-bottom: 1px solid var(–rule);
+padding: 36px 0;
+display: grid;
+grid-template-columns: 160px 1fr;
+gap: 32px;
+}
+
+.entry.hidden { display: none; }
+
+.entry-type {
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: var(–light);
+margin-bottom: 6px;
+display: block;
+}
+
+.entry-when {
+font-size: 12px;
+color: var(–mid);
+font-weight: 300;
+line-height: 1.5;
+}
+
+.entry-status {
+display: inline-block;
+font-size: 11px;
+font-weight: 500;
+padding: 3px 9px;
+border-radius: 2px;
+margin-bottom: 12px;
+}
+
+.status-active  { background: #e8f5e9; color: #2e7d32; }
+.status-planned { background: #e3f2fd; color: #1565c0; }
+.status-done    { background: #f5f5f5; color: #555555; }
+
+.entry h2 {
+font-family: ‘EB Garamond’, serif;
+font-size: 24px;
+font-weight: 500;
+color: var(–black);
+line-height: 1.25;
+letter-spacing: -0.01em;
+margin-bottom: 12px;
+}
+
+.entry-body {
+font-size: 14px;
+color: var(–mid);
+line-height: 1.75;
+font-weight: 300;
+margin-bottom: 14px;
+}
+
+.entry-source {
+font-size: 12px;
+color: var(–light);
+font-weight: 300;
+margin-bottom: 12px;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.entry-source::before {
+content: ‘’;
+display: inline-block;
+width: 16px;
+height: 1px;
+background: var(–rule);
+flex-shrink: 0;
+}
+
+.entry-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 6px;
+}
+
+.entry-tag {
+font-size: 11px;
+color: var(–mid);
+background: var(–tag-bg);
+padding: 3px 9px;
+border-radius: 2px;
+}
+
+/* EMPTY */
+.no-results {
+padding: 60px 0;
+text-align: center;
+color: var(–light);
+font-family: ‘EB Garamond’, serif;
+font-size: 20px;
+font-style: italic;
+display: none;
+}
+
+/* CTA */
+.cta-section {
+border-top: 1px solid var(–rule);
+background: var(–white);
+padding: 64px 40px;
+}
+
+.cta-inner { max-width: 720px; margin: 0 auto; }
+
+.cta-inner h2 {
+font-family: ‘EB Garamond’, serif;
+font-size: 30px;
+font-weight: 500;
+color: var(–black);
+margin-bottom: 10px;
+}
+
+.cta-inner p {
+font-size: 14px;
+color: var(–mid);
+font-weight: 300;
+margin-bottom: 24px;
+}
+
+.cta-form { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+.cta-form input {
+font-family: ‘Inter’, sans-serif;
+font-size: 14px;
+font-weight: 300;
+padding: 10px 16px;
+border: 1px solid var(–rule);
+background: var(–bg);
+border-radius: 2px;
+outline: none;
+width: 260px;
+transition: border-color 0.15s;
+}
+
+.cta-form input:focus { border-color: var(–black); }
+
+.cta-form button {
+font-family: ‘Inter’, sans-serif;
+font-size: 13px;
+font-weight: 500;
+padding: 10px 22px;
+background: var(–black);
+color: var(–white);
+border: none;
+border-radius: 2px;
+cursor: pointer;
+transition: opacity 0.15s;
+}
+
+.cta-form button:hover { opacity: 0.75; }
+
+.cta-sub { font-size: 12px; color: var(–light); margin-top: 12px; font-weight: 300; }
+
+.cta-success {
+display: none;
+font-family: ‘EB Garamond’, serif;
+font-size: 20px;
+color: var(–black);
+font-style: italic;
+}
+
+/* FOOTER */
+footer {
+border-top: 1px solid var(–rule);
+padding: 28px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 12px;
+}
+
+footer p { font-size: 12px; color: var(–light); font-weight: 300; line-height: 1.7; }
+footer a { color: var(–mid); text-decoration: none; }
+footer a:hover { color: var(–black); }
+
+/* RESPONSIVE */
+@media (max-width: 680px) {
+header { padding: 16px 20px; }
+.hero, .filter-section, .feed-section, .how-inner, .cta-inner { padding-left: 20px; padding-right: 20px; }
+.how-steps, .filter-groups { grid-template-columns: 1fr; gap: 24px; }
+.entry { grid-template-columns: 1fr; gap: 8px; }
+.entry-left { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+footer { padding: 20px; flex-direction: column; }
+}
+</style>
+
+</head>
+<body>
+
+<header>
+  <span class="site-name">MeinBezirk Karlsruhe</span>
+  <span class="site-meta">Ein Bürger:innen-Konzept · 2026</span>
+</header>
+
+<section class="hero">
+  <p class="hero-quote">
+    „Ich saß im Elternabend und die Schulleiterin erwähnte es beiläufig: dass sich die Anmelderegelungen für Grundschulen geändert haben. Seit September. Das stand im Beschluss. Ich hatte keine Ahnung."
+  </p>
+  <h1>Was der Gemeinderat entscheidet —&thinsp;was Sie betrifft.</h1>
+  <p>Karlsruhe trifft ständig Entscheidungen, die Ihren Alltag betreffen — neue Regeln, Fristen, Bauvorhaben, Kitaplätze, Radwege. MeinBezirk bringt diese Informationen zu Ihnen, gefiltert nach dem, was für Sie relevant ist. Keine PDFs. Kein Amtsdeutsch. Nur das, was zählt.</p>
+</section>
+
+<section class="how-section">
+  <div class="how-inner">
+    <p class="how-label">So funktioniert's</p>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-num">01</div>
+        <h3>Wählen Sie Ihre Themen</h3>
+        <p>Lebenslage, Stadtteil, Anlass — Sie bestimmen, was für Sie relevant ist.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">02</div>
+        <h3>Wir beobachten die Beschlüsse</h3>
+        <p>Gemeinderatssitzungen, Ausschüsse, Ortschaftsräte — erfasst über das öffentliche Ratsinformationssystem der Stadt.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">03</div>
+        <h3>Sie erfahren, was zählt</h3>
+        <p>Verständlich aufbereitet, direkt zu Ihnen. Kein PDF-Dschungel, kein Behördendeutsch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="filter-section">
+  <p class="filter-intro">Was interessiert Sie? <span>Auswahl filtert die Meldungen unten</span></p>
+  <div class="filter-groups">
+    <div>
+      <div class="filter-group-title">Lebenslage</div>
+      <div class="filter-tags">
+        <span class="tag" data-filter="lebenslage" data-val="Eltern / Kita">Eltern / Kita</span>
+        <span class="tag" data-filter="lebenslage" data-val="Eltern / Schule">Eltern / Schule</span>
+        <span class="tag" data-filter="lebenslage" data-val="Mieter:in">Mieter:in</span>
+        <span class="tag" data-filter="lebenslage" data-val="Eigentümer:in">Eigentümer:in</span>
+        <span class="tag" data-filter="lebenslage" data-val="Radfahrer:in">Radfahrer:in</span>
+        <span class="tag" data-filter="lebenslage" data-val="Gewerbetreibende">Gewerbetreibende</span>
+        <span class="tag" data-filter="lebenslage" data-val="Senior:in">Senior:in</span>
+        <span class="tag" data-filter="lebenslage" data-val="Alle Bürger:innen">Alle</span>
+      </div>
+    </div>
+    <div>
+      <div class="filter-group-title">Stadtteil</div>
+      <div class="filter-tags">
+        <span class="tag" data-filter="ort" data-val="Innenstadt">Innenstadt</span>
+        <span class="tag" data-filter="ort" data-val="Südstadt">Südstadt</span>
+        <span class="tag" data-filter="ort" data-val="Durlach">Durlach</span>
+        <span class="tag" data-filter="ort" data-val="Mühlburg">Mühlburg</span>
+        <span class="tag" data-filter="ort" data-val="Neureut">Neureut</span>
+        <span class="tag" data-filter="ort" data-val="Oberreut">Oberreut</span>
+        <span class="tag" data-filter="ort" data-val="Grötzingen">Grötzingen</span>
+        <span class="tag" data-filter="ort" data-val="Stadtweit">Stadtweit</span>
+      </div>
+    </div>
+    <div>
+      <div class="filter-group-title">Anlass</div>
+      <div class="filter-tags">
+        <span class="tag" data-filter="anlass" data-val="Kita-Anmeldung">Kita-Anmeldung</span>
+        <span class="tag" data-filter="anlass" data-val="Schulanmeldung">Schulanmeldung</span>
+        <span class="tag" data-filter="anlass" data-val="Bauvorhaben">Bauvorhaben</span>
+        <span class="tag" data-filter="anlass" data-val="Radverkehr">Radverkehr</span>
+        <span class="tag" data-filter="anlass" data-val="Wohnen">Wohnen</span>
+        <span class="tag" data-filter="anlass" data-val="Haushalt">Haushalt</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feed-section">
+  <div class="feed-header">
+    <span class="feed-title">Meldungen</span>
+    <span class="feed-count" id="feedCount">18 Einträge</span>
+  </div>
+
+  <article class="entry" data-lebenslage="Eltern / Kita" data-ort="Stadtweit" data-anlass="Kita-Anmeldung">
+    <div class="entry-left">
+      <span class="entry-type">Gemeinderatsbeschluss</span>
+      <span class="entry-when">In Kraft seit<br>01.09.2025</span>
+    </div>
+    <div class="entry-right">
+      <span class="entry-status status-active">In Kraft</span>
+      <h2>Kita-Gebühren 2025/26: Neue Einkommensstaffelung</h2>
+      <p class="entry-body">Der Gemeinderat hat die Kita-Gebührenordnung überarbeitet. Familien mit einem Haushaltseinkommen unter 30.000 € zahlen ab September 2025 bis zu 30 % weniger als bisher. Gleichzeitig steigen die Beiträge für höhere Einkommensgruppen leicht an. Die neue Staffelung gilt für alle städtischen Kitas und kann auf Antrag auch für freie Träger (AWO, Caritas) übernommen werden.</p>
+      <p class="entry-source">Gemeinderat Karlsruhe · Sitzung 22.07.2025 · TOP 5</p>
+      <div class="entry-tags">
+        <span class="entry-tag">Eltern / Kita</span>
+        <span class="entry-tag">Stadtweit</span>
+        <span class="entry-tag">Kita-Anmeldung</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="entry" data-lebenslage="Eltern / Kita" data-ort="Mühlburg" data-anlass="Kita-Anmeldung Bauvorhaben">
+    <div class="entry-left">
+      <span class="entry-type">Bezirksentscheidung</span>
+      <span class="entry-when">Eröffnung<br>September 2026</span>
+    </div>
+    <div class="entry-right">
+      <span class="entry-status status-planned">Beschlossen</span>
+      <h2>Neue Kita Mühlburg-West — 75 Plätze, 25 davon für unter Dreijährige</h2>
+      <p class="entry-body">Der Jugendhilfeausschuss hat den Neubau einer städtischen Kita in Mühlburg-West beschlossen. 75 Plätze, Ganztagsbetreuung. Die Einrichtung soll den langen Wartezeiten im Stadtteil entgegenwirken — aktuell warten dort über 120 Kinder auf einen Platz. Anmeldungen ab Mai 2026 über das städtische Kita-Portal.</p>
+      <p class="entry-source">Jugendhilfeausschuss Karlsruhe · 27.01.2026 · TOP 2</p>
+      <div class="entry-tags">
+        <span class="entry-tag">Eltern / Kita</span>
+        <span class="entry-tag">Mühlburg</span>
+        <span class="entry-tag">Kita-Anmeldung</span>
+        <span class="entry-tag">Bauvorhaben</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="entry" data-lebenslage="Eltern / Kita Eltern / Schule" data-ort="Stadtweit" data-anlass="Kita-Anmeldung Schulanmeldung">
+    <div class="entry-left">
+      <span class="entry-type">Gemeinderatsbeschluss</span>
+      <span class="entry-when">In Kraft seit<br>01.11.2025</span>
+    </div>
+    <div class="entry-right">
+      <span class="entry-status status-active">In Kraft</span>
+      <h2>Digitale Kita- und Schulanmeldung: Ein Portal für alle Einrichtungen</h2>
+      <p class="entry-body">Seit November 2025 läuft die Anmeldung für städtische Kitas und Grundschulen über ein gemeinsames Online-Portal. Eltern können Wunscheinrichtungen priorisieren, Geschwisterkinder werden automatisch berücksichtigt. Das System reduziert Mehrfachanmeldungen und macht Wartezeiten transparenter. Kirchliche und private Träger sind derzeit noch nicht angebunden.</p>
+      <p class="entry-source">Gemeinderat Karlsruhe · 18.09.2025 · TOP 4</p>
+      <div class="entry-tags">
+        <span class="entry-tag">Eltern / Kita</span>
+        <span class="entry-tag">Eltern / Schule</span>
+        <span class="entry-tag">Stadtweit</span>
+        <span class="entry-tag">Kita-Anmeldung</span>
+        <span class="entry-tag">Schulanmeldung</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="entry" data-lebenslage="Eltern / Schule" data-ort="Durlach" data-anlass="Schulanmeldung Bauvorhaben">
+    <div class="entry-left">
+      <span class="entry-type">Gemeinderatsbeschluss</span>
+      <span class="entry-when">Fertigstellung<br>Schuljahr 2027/28</span>
+    </div>
+    <div class="entry-right">
+      <span class="entry-status status-planned">Im Bau</span>
+      <h2>Erweiterung Grundschule Durlach-Aue — 6 neue Klassenräume</h2>
+      <p class="entry-body">Wegen steigender Schülerzahlen hat der Gemeinderat den Erweiterungsbau beschlossen. Entstehen werden 6 neue Klassenräume, ein Differenzierungsraum und eine barrierefreie Mensa-Erweiterung. Kosten: 4,2 Mio. €, finanziert aus dem Schulbauprogramm des Landes. Anmeldungen für 2027/28 bleiben unverändert über das Schulamt.</p>
+      <p class="entry-source">Gemeinderat Karlsruhe · 25.11.2025 · TOP 8</p>
+      <div class="entry-tags">
+        <span class="entry-tag">Eltern / Schule</span>
+        <span class="entry-tag">Durlach</span>
+        <span class="entry-tag">Bauvorhaben</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="entry" data-lebenslage="Eltern / Schule Alle Bürger:innen" data-ort="Neureut" data-anlass="Schulanmeldung Bauvorhaben">
+    <div class="entry-left">
+      <span class="entry-type">Bezirksentscheidung</span>
+      <span class="entry-when">Abgeschlossen<br>Oktober 2025</span>
+    </div>
+    <div class="entry-right">
+      <span class="entry-status status-done">Abgeschlossen</span>
+      <h2>Schulsanierung Neureut: Turnhalle und Mensa wiedereröffnet</h2>
+      <p class="entry-body">Nach 14 Monaten Bauzeit wurde die sanierte Sporthalle und Mensa der Friedrich-Hecker-Schule in Neureut im Oktober 2025 wiedereröffnet. Kosten: 3,6 Mio. €. Die Mensa fasst jetzt 180 Schüler:innen gleichzeitig statt früher 80. Mittagesssen kann ab sofort online gebucht werden.</p>
+      <p class="entry-source">Ortschaftsrat Neureut · Oktober 2025</p>
+      <div class="entry-tags">
+        <span class="entry-tag">Eltern / Schule</span>
+        <span class="entry-tag">Neureut</span>
+        <span class="entry-tag">Bauvorhaben</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="entry" data-lebenslage="Mieter:in" data-ort="Stadtweit" data-anlass="Wohnen">
+    <div class="entry-left">
+      <span class="entry-type">Gemeinderatsbeschluss</span>
+      <span class="entry-when">In Kraft seit<br>01.10.2025</span>
+    </div>
+    <div class="entry-right">
+      <span class="entry-status status-active">In Kraft</span>
+      <h2>Neue Stellplatzsatzung: Weniger Pflichtparkplätze bei Neubauten</h2>
+      <p class="entry-body">In gut erschlossenen Lagen (nahe Tram und Bahn) müssen Neubauten künftig weniger KFZ-Stellplätze nachweisen — dafür mehr Fahrradabstellplätze. Gebäude ohne Tiefgarage werden günstiger und können langfristig die Mieten entlasten. Die Satzung gilt für alle Bauanträge ab Oktober 2025.</p>
+      <p class="entry-source">Gemeinderat Karlsruhe · 27.01.2026 · TOP 4</p>
+      <div class="entry-tags">
+        <span class="entry-tag">Mieter:in</span>
+        <span class="entry-tag">Eigentümer:in</span>
+        <span class="entry-tag">Stadtweit</span>
+        <span class="entry-tag">Wohnen</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="entry" data-lebenslage="Mieter:in Alle Bürger:innen" data-ort="Stadtweit" data-anlass="Wohnen">
+    <div class="entry-left">
+      <span class="entry-type">Gemeinderatsbeschluss</span>
+      <span class="entry-when">In Kraft seit<br>01.08.2025</span>
+    </div>
+    <div class="entry-right">
+      <span class="entry-status status-active">In Kraft</span>
+      <h2>Mietpreisbremse verlängert — Karlsruhe bleibt in der Verordnung</h2>
+      <p class="entry-body">Das Land Baden-Württemberg hat die Mietpreisbremse verlängert, Karlsruhe bleibt Teil der Gebietskulisse. Bei Neuvermietungen darf die Miete maximal 10 % über der ortsüblichen Vergleichsmiete liegen. Der Gemeinderat hat zudem die Stadtverwaltung beauftragt, Verstöße aktiver zu verfolgen, und das Beratungsangebot beim Mieterverein aufgestockt.</p>
+      <p class="entry-source">Gemeinderat Karlsruhe · 22.07.2025 · TOP 11</p>
+      <div class="entry-tags">
+        <span class="entry-tag">Mieter:in</span>
+        <span class="entry-tag">Stadtweit</span>
+        <span class="entry-tag">Wohnen</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="entry" data-lebenslage="Eigentümer:in Mieter:in" data-ort="Südstadt" data-anlass="Wohnen">
+    <div class="entry-left">
+      <span class="entry-type">Gemeinderatsbeschluss</span>
+      <span class="entry-when">Verlängert bis<br>2030</span>
+    </div>
+    <div class="entry-right">
+      <span class="entry-status status-active">In Kraft</span>
+      <h2>Erhaltungssatzung Südstadt verlängert — Luxussanierungen eingeschränkt</h2>
+      <p class="entry-body">Der Gemeinderat hat die Erhaltungssatzung für die Südstadt um 5 Jahre verlängert. Umbaumaßnahmen, die zu Mieterhöhungen über 30 % führen würden, sind genehmigungspflichtig. Eigentümer:innen müssen Anträge beim Stadtplanungsamt stellen. Die Satzung schützt die angestammte Wohnbevölkerung vor Verdrängung.</p>
+      <p class="entry-source">Gemeinderat Karlsruhe · 22.07.2025 · TOP 9</p>
+      <div class="entry-tags">
+        <span class="entry-tag">Mieter:in</span>
+        <span class="entry-tag">Eigentümer:in</span>
+        <span class="entry-tag">Südstadt</span>
+        <span class="entry-tag">Wohnen</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="entry" data-lebenslage="Senior:in Eigentümer:in" data-ort="Stadtweit" data-anlass="Wohnen">
+    <div class="entry-left">
+      <span class="entry-type">Gemeinderatsbeschluss</span>
+      <span class="entry-when">Programm läuft<br>bis Ende 2027</span>
+    </div>
+    <div class="entry-right">
+      <span class="entry-status status-active">Aktiv</span>
+      <h2>Förderprogramm barrierefreier Umbau: Zuschüsse bis 10.000 €</h2>
+      <p class="entry-body">Eigentümer:innen und Vermieter:innen können bis zu 10.000 € Zuschuss erhalten — für Rampen, Treppenlifte, begehbare Duschen oder breitere Türen. Voraussetzung: Gebäude in Karlsruhe, Antragsteller mindestens 65 Jahre oder mit anerkannter Behinderung. Anträge beim Sozialamt, Mittel sind begrenzt.</p>
+      <p class="entry-source">Sozialausschuss Karlsruhe · 29.01.2026</p>
+      <div class="entry-tags">
+        <span class="entry-tag">Senior:in</span>
+        <span class="entry-tag">Eigentümer:in</span>
+        <span class="entry-tag">Stadtweit</span>
+        <span class="entry-tag">Wohnen</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="entry" data-lebenslage="Radfahrer:in" data-ort="Innenstadt" data-anlass="Radverkehr">
+    <div class="entry-left">
+      <span class="entry-type">Gemeinderatsbeschluss</span>
+      <span class="entry-when">Baustart<br>Frühjahr 2026</span>
+    </div>
+    <div class="entry-right">
+      <span class="entry-status status-planned">Beschlossen</span>
+      <h2>Radschnellweg Karlsruhe–Ettlingen: Planung abgeschlossen</h2>
+      <p class="entry-body">Der Planungsausschuss hat den Entwurf für den 12 km langen Radschnellweg genehmigt. Breite: 4 Meter, durchgehend beleuchtet, kreuzungsarm. Baustart Frühjahr 2026, Fertigstellung Ende 2027. Entlang der Strecke werden 8 sichere Abstellanlagen errichtet.</p>
+      <p class="entry-source">Planungsausschuss Karlsruhe · 18.09.2025 · TOP 3</p>
+      <div class="entry-tags">
+        <span class="entry-tag">Radfahrer:in</span>
+        <span class="entry-tag">Innenstadt</span>
+        <span class="entry-tag">Radverkehr</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="entry" data-lebenslage="Radfahrer:in Alle Bürger:innen" data-ort="Innenstadt Südstadt" data-anlass="Radverkehr Bauvorhaben">
+    <div class="entry-left">
+      <span class="entry-type">Gemeinderatsbeschluss</span>
+      <span class="entry-when">Umsetzung<br>ab März 2026</span>
+    </div>
+    <div class="entry-right">
+      <span class="entry-status status-planned">Beschlossen</span>
+      <h2>Fahrradstraße Karl-Wilhelm-Straße: Autos nur noch als Gäste</h2>
+      <p class="entry-body">Die Karl-Wilhelm-Straße zwischen Ettlinger Tor und Südstadt wird zur Fahrradstraße. Autos dürfen sie nutzen, haben aber keinen Vorrang mehr. Tempo 30, Radfahrer:innen nebeneinander erlaubt, neue Markierungen. Umbau bis April 2026 geplant. Anwohner:innen mit Parkausweis behalten ihre Plätze.</p>
+      <p class="entry-source">Gemeinderat Karlsruhe · 25.11.2025 · TOP 6</p>
+      <div class="entry-tags">
+        <span class="entry-tag">Radfahrer:in</span>
+        <span class="entry-tag">Innenstadt</span>
+        <span class="entry-tag">Südstadt</span>
+        <span class="entry-tag">Radverkehr</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="entry" data-lebenslage="Radfahrer:in Alle Bürger:innen" data-ort="Grötzingen" data-anlass="Radverkehr Bauvorhaben">
+    <div class="entry-left">
+      <span class="entry-type">Bezirksentscheidung</span>
+      <span class="entry-when">Umsetzung<br>Sommer 2026</span>
+    </div>
+    <div class="entry-right">
+      <span class="entry-status status-planned">Beschlossen</span>
+      <h2>Radweg Grötzingen–Durlach: Lücke im Netz wird geschlossen</h2>
+      <p class="entry-body">Ein 1,8 km langer asphaltierter Weg entlang der Pfinz wird gebaut — eine täglich genutzte Pendlerstrecke für rund 800 Radfahrer:innen. Kosten: 420.000 €. Der Ortschaftsrat Grötzingen hatte den Bedarf seit Jahren angemeldet.</p>
+      <p class="entry-source">Ortschaftsrat Grötzingen / Planungsausschuss · Dezember 2025</p>
+      <div class="entry-tags">
+        <span class="entry-tag">Radfahrer:in</span>
+        <span class="entry-tag">Grötzingen</span>
+        <span class="entry-tag">Radverkehr</span>
+        <span class="entry-tag">Bauvorhaben</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="entry" data-lebenslage="Gewerbetreibende Alle Bürger:innen" data-ort="Innenstadt" data-anlass="Bauvorhaben">
+    <div class="entry-left">
+      <span class="entry-type">Gemeinderatsbeschluss</span>
+      <span class="entry-when">Fertigstellung<br>2028</span>
+    </div>
+    <div class="entry-right">
+      <span class="entry-status status-planned">Beschlossen</span>
+      <h2>Umbau Marktplatz: Begrünung, Aufenthaltsqualität, weniger Verkehr</h2>
+      <p class="entry-body">Geplant sind 24 neue Stadtbäume, breitere Fußgängerzonen, Abschaffung der Durchfahrt für Lieferverkehr (Ausnahmen bis 10 Uhr), neue Sitzgelegenheiten und ein Trinkbrunnen. Händler:innen erhalten während der Bauphase 2026–2028 Sonderkonditionen für Veranstaltungsgenehmigungen.</p>
+      <p class="entry-source">Gemeinderat Karlsruhe · 25.11.2025 · TOP 12</p>
+      <div class="entry-tags">
+        <span class="entry-tag">Gewerbetreibende</span>
+        <span class="entry-tag">Alle Bürger:innen</span>
+        <span class="entry-tag">Innenstadt</span>
+        <span class="entry-tag">Bauvorhaben</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="entry" data-lebenslage="Gewerbetreibende Alle Bürger:innen" data-ort="Innenstadt" data-anlass="Bauvorhaben Wohnen">
+    <div class="entry-left">
+      <span class="entry-type">Gemeinderatsbeschluss</span>
+      <span class="entry-when">Abgestimmt<br>Dezember 2025</span>
+    </div>
+    <div class="entry-right">
+      <span class="entry-status status-planned">Beschlossen</span>
+      <h2>Leerstandsmanagement Innenstadt: Stadt kauft Schlüsselimmobilien</h2>
+      <p class="entry-body">Um dem Ladensterben in der Innenstadt entgegenzuwirken, wird die Stadt bis zu 3 leerstehende Schlüsselimmobilien kaufen oder pachten und günstig an gemeinnützige Nutzungen oder Start-ups weitergeben. Ein Stadtentwicklungsfonds von 5 Mio. € wurde eingerichtet. Erste Ergebnisse werden für Mitte 2026 erwartet.</p>
+      <p class="entry-source">Gemeinderat Karlsruhe · 22.12.2025 · TOP 3</p>
+      <div class="entry-tags">
+        <span class="entry-tag">Gewerbetreibende</span>
+        <span class="entry-tag">Innenstadt</span>
+        <span class="entry-tag">Bauvorhaben</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="entry" data-lebenslage="Senior:in Alle Bürger:innen" data-ort="Oberreut" data-anlass="Bauvorhaben">
+    <div class="entry-left">
+      <span class="entry-type">Bezirksentscheidung</span>
+      <span class="entry-when">Baustart<br>Q3 2026</span>
+    </div>
+    <div class="entry-right">
+      <span class="entry-status status-planned">Beschlossen</span>
+      <h2>Neues Begegnungszentrum Oberreut — Treffpunkt für alle Generationen</h2>
+      <p class="entry-body">Entstehen sollen: ein Café, Beratungsräume, ein Bewegungsraum für ältere Menschen und Räume für Vereine. Träger wird ein gemeinnütziger Verein. Baustart Q3 2026, Kosten rund 2,8 Mio. €. Das Zentrum ergänzt die bestehenden sozialen Angebote im Stadtteil.</p>
+      <p class="entry-source">Sozialausschuss Karlsruhe · 18.09.2025</p>
+      <div class="entry-tags">
+        <span class="entry-tag">Senior:in</span>
+        <span class="entry-tag">Alle Bürger:innen</span>
+        <span class="entry-tag">Oberreut</span>
+        <span class="entry-tag">Bauvorhaben</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="entry" data-lebenslage="Alle Bürger:innen" data-ort="Stadtweit" data-anlass="Haushalt">
+    <div class="entry-left">
+      <span class="entry-type">Gemeinderatsbeschluss</span>
+      <span class="entry-when">Beschluss<br>24.02.2026</span>
+    </div>
+    <div class="entry-right">
+      <span class="entry-status status-planned">In Beratung</span>
+      <h2>Doppelhaushalt 2026/27: Schwerpunkte Schulen, Klima und ÖPNV</h2>
+      <p class="entry-body">Rund 1,4 Mrd. € Gesamtvolumen, über 500 Änderungsanträge der Fraktionen. Schwerpunkte: Sanierung von 12 Schulgebäuden (38 Mio. €), Klimaschutzmaßnahmen (22 Mio. €), ÖPNV-Ausbau. Der Beschluss fällt in der Gemeinderatssitzung am 24. Februar 2026.</p>
+      <p class="entry-source">Haupt- und Finanzausschuss · 10.02.2026</p>
+      <div class="entry-tags">
+        <span class="entry-tag">Alle Bürger:innen</span>
+        <span class="entry-tag">Stadtweit</span>
+        <span class="entry-tag">Haushalt</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="entry" data-lebenslage="Alle Bürger:innen" data-ort="Stadtweit" data-anlass="Haushalt Radverkehr">
+    <div class="entry-left">
+      <span class="entry-type">Gemeinderatsbeschluss</span>
+      <span class="entry-when">Umsetzung<br>2026–2030</span>
+    </div>
+    <div class="entry-right">
+      <span class="entry-status status-planned">Beschlossen</span>
+      <h2>Klimaschutzprogramm 2030: 300 Mio. € für Energiewende und Verkehr</h2>
+      <p class="entry-body">Fernwärme auf 60 % der Wohngebäude, Solarpflicht für Neubauten ab 2026, Verdoppelung des Radwegnetzes, klimaneutraler ÖPNV bis 2028. Das Programm kostet rund 300 Mio. € bis 2030 — finanziert aus Bundes- und Landesmitteln sowie dem städtischen Haushalt.</p>
+      <p class="entry-source">Gemeinderat Karlsruhe · 25.11.2025 · TOP 2</p>
+      <div class="entry-tags">
+        <span class="entry-tag">Alle Bürger:innen</span>
+        <span class="entry-tag">Stadtweit</span>
+        <span class="entry-tag">Haushalt</span>
+        <span class="entry-tag">Radverkehr</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="entry" data-lebenslage="Alle Bürger:innen" data-ort="Stadtweit" data-anlass="Haushalt">
+    <div class="entry-left">
+      <span class="entry-type">Gemeinderatsbeschluss</span>
+      <span class="entry-when">In Kraft seit<br>01.01.2026</span>
+    </div>
+    <div class="entry-right">
+      <span class="entry-status status-active">In Kraft</span>
+      <h2>Online-Bürgerportal: 47 Behördengänge jetzt digital möglich</h2>
+      <p class="entry-body">Seit Januar 2026 sind 47 häufig genutzte Verwaltungsleistungen vollständig digital abzuwickeln — darunter Ummeldung, KFZ-Zulassung, Gewerbeanmeldung und Elterngeldantrag. Weitere 30 Leistungen folgen bis Ende 2026. Basis ist das neue Digitalisierungskonzept, das der Gemeinderat im September 2025 beschlossen hat.</p>
+      <p class="entry-source">Gemeinderat Karlsruhe · 18.09.2025 · TOP 7</p>
+      <div class="entry-tags">
+        <span class="entry-tag">Alle Bürger:innen</span>
+        <span class="entry-tag">Stadtweit</span>
+      </div>
+    </div>
+  </article>
+
+  <p class="no-results" id="noResults">Keine Meldungen für diese Auswahl.</p>
+</section>
+
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Diese Meldungen per E-Mail erhalten</h2>
+    <p>Wir benachrichtigen Sie, sobald neue Beschlüsse zu Ihren Themen veröffentlicht werden. Kein Spam, jederzeit abbestellbar.</p>
+    <div class="cta-form" id="ctaForm">
+      <input type="email" placeholder="ihre@email.de" id="emailInput">
+      <button onclick="subscribe()">Abonnieren</button>
+    </div>
+    <p class="cta-sub">Ihre Auswahl oben bestimmt, welche Meldungen Sie erhalten.</p>
+    <p class="cta-success" id="ctaSuccess">Anmeldung bestätigt. Sie erhalten ab sofort Meldungen zu Ihren ausgewählten Themen.</p>
+  </div>
+</section>
+
+<footer>
+  <p>
+    MeinBezirk Karlsruhe ist ein Bürger:innen-Konzept. Dies ist keine offizielle Seite der Stadt Karlsruhe.<br>
+    Inspiriert von <a href="https://igorschwarzmann.com/meinbezirk/" target="_blank">MeinBezirk Berlin</a> von Igor Schwarzmann ·
+    Daten: <a href="https://sitzungskalender.karlsruhe.de/db/ratsinformation/start" target="_blank">Ratsinformationssystem Karlsruhe</a>
+  </p>
+  <p>Prototyp · Februar 2026</p>
+</footer>
+
+<script>
+  const selected = { lebenslage: null, ort: null, anlass: null };
+
+  document.querySelectorAll('.tag').forEach(tag => {
+    tag.addEventListener('click', () => {
+      const type = tag.dataset.filter;
+      const val  = tag.dataset.val;
+
+      if (tag.classList.contains('selected')) {
+        tag.classList.remove('selected');
+        selected[type] = null;
+      } else {
+        document.querySelectorAll(`.tag[data-filter="${type}"]`).forEach(t => t.classList.remove('selected'));
+        tag.classList.add('selected');
+        selected[type] = val;
+      }
+      applyFilters();
+    });
+  });
+
+  function applyFilters() {
+    const entries = document.querySelectorAll('.entry');
+    let visible = 0;
+
+    entries.forEach(entry => {
+      const l = entry.dataset.lebenslage || '';
+      const o = entry.dataset.ort        || '';
+      const a = entry.dataset.anlass     || '';
+
+      const match =
+        (!selected.lebenslage || l.includes(selected.lebenslage)) &&
+        (!selected.ort        || o.includes(selected.ort) || o.includes('Stadtweit')) &&
+        (!selected.anlass     || a.includes(selected.anlass));
+
+      entry.classList.toggle('hidden', !match);
+      if (match) visible++;
+    });
+
+    const total = document.querySelectorAll('.entry').length;
+    document.getElementById('feedCount').textContent =
+      visible === total ? `${total} Einträge` : `${visible} von ${total} Einträgen`;
+
+    document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  function subscribe() {
+    const val = document.getElementById('emailInput').value;
+    if (!val || !val.includes('@')) {
+      document.getElementById('emailInput').style.borderColor = '#c62828';
+      return;
+    }
+    document.getElementById('ctaForm').style.display = 'none';
+    document.querySelector('.cta-sub').style.display = 'none';
+    document.getElementById('ctaSuccess').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
