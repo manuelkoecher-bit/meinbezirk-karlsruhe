@@ -203,8 +203,10 @@ gap: 7px;
 
 .tag {
 display: inline-block;
+font-family: 'Inter', sans-serif;
 font-size: 13px;
 font-weight: 400;
+line-height: 1;
 padding: 5px 12px;
 border: 1px solid var(--rule);
 border-radius: 2px;
@@ -216,6 +218,7 @@ user-select: none;
 }
 
 .tag:hover { border-color: var(--black); color: var(--black); }
+.tag:focus-visible { outline: 2px solid var(--black); outline-offset: 2px; }
 
 .tag.selected {
 background: var(--black);
@@ -260,6 +263,7 @@ transition: all 0.15s;
 }
 
 .filter-reset-btn:hover { border-color: var(--black); color: var(--black); }
+.filter-reset-btn:focus-visible { outline: 2px solid var(--black); outline-offset: 2px; }
 
 /* FEED */
 .feed-section {
@@ -532,38 +536,38 @@ footer { padding: 20px; flex-direction: column; }
     <div>
       <div class="filter-group-title">Lebenslage</div>
       <div class="filter-tags">
-        <span class="tag" data-filter="lebenslage" data-label="Eltern / Kita" data-val="Eltern / Kita">Eltern / Kita</span>
-        <span class="tag" data-filter="lebenslage" data-label="Eltern / Schule" data-val="Eltern / Schule">Eltern / Schule</span>
-        <span class="tag" data-filter="lebenslage" data-label="Mieter:in" data-val="Mieter:in">Mieter:in</span>
-        <span class="tag" data-filter="lebenslage" data-label="Eigentümer:in" data-val="Eigentümer:in">Eigentümer:in</span>
-        <span class="tag" data-filter="lebenslage" data-label="Radfahrer:in" data-val="Radfahrer:in">Radfahrer:in</span>
-        <span class="tag" data-filter="lebenslage" data-label="Gewerbetreibende" data-val="Gewerbetreibende">Gewerbetreibende</span>
-        <span class="tag" data-filter="lebenslage" data-label="Senior:in" data-val="Senior:in">Senior:in</span>
-        <span class="tag" data-filter="lebenslage" data-label="Alle" data-val="Alle Bürger:innen">Alle</span>
+        <button class="tag" data-filter="lebenslage" data-label="Eltern / Kita" data-val="Eltern / Kita">Eltern / Kita</button>
+        <button class="tag" data-filter="lebenslage" data-label="Eltern / Schule" data-val="Eltern / Schule">Eltern / Schule</button>
+        <button class="tag" data-filter="lebenslage" data-label="Mieter:in" data-val="Mieter:in">Mieter:in</button>
+        <button class="tag" data-filter="lebenslage" data-label="Eigentümer:in" data-val="Eigentümer:in">Eigentümer:in</button>
+        <button class="tag" data-filter="lebenslage" data-label="Radfahrer:in" data-val="Radfahrer:in">Radfahrer:in</button>
+        <button class="tag" data-filter="lebenslage" data-label="Gewerbetreibende" data-val="Gewerbetreibende">Gewerbetreibende</button>
+        <button class="tag" data-filter="lebenslage" data-label="Senior:in" data-val="Senior:in">Senior:in</button>
+        <button class="tag" data-filter="lebenslage" data-label="Alle" data-val="Alle Bürger:innen">Alle</button>
       </div>
     </div>
     <div>
       <div class="filter-group-title">Stadtteil</div>
       <div class="filter-tags">
-        <span class="tag" data-filter="ort" data-label="Innenstadt" data-val="Innenstadt">Innenstadt</span>
-        <span class="tag" data-filter="ort" data-label="Südstadt" data-val="Südstadt">Südstadt</span>
-        <span class="tag" data-filter="ort" data-label="Durlach" data-val="Durlach">Durlach</span>
-        <span class="tag" data-filter="ort" data-label="Mühlburg" data-val="Mühlburg">Mühlburg</span>
-        <span class="tag" data-filter="ort" data-label="Neureut" data-val="Neureut">Neureut</span>
-        <span class="tag" data-filter="ort" data-label="Oberreut" data-val="Oberreut">Oberreut</span>
-        <span class="tag" data-filter="ort" data-label="Grötzingen" data-val="Grötzingen">Grötzingen</span>
-        <span class="tag" data-filter="ort" data-label="Stadtweit" data-val="Stadtweit">Stadtweit</span>
+        <button class="tag" data-filter="ort" data-label="Innenstadt" data-val="Innenstadt">Innenstadt</button>
+        <button class="tag" data-filter="ort" data-label="Südstadt" data-val="Südstadt">Südstadt</button>
+        <button class="tag" data-filter="ort" data-label="Durlach" data-val="Durlach">Durlach</button>
+        <button class="tag" data-filter="ort" data-label="Mühlburg" data-val="Mühlburg">Mühlburg</button>
+        <button class="tag" data-filter="ort" data-label="Neureut" data-val="Neureut">Neureut</button>
+        <button class="tag" data-filter="ort" data-label="Oberreut" data-val="Oberreut">Oberreut</button>
+        <button class="tag" data-filter="ort" data-label="Grötzingen" data-val="Grötzingen">Grötzingen</button>
+        <button class="tag" data-filter="ort" data-label="Stadtweit" data-val="Stadtweit">Stadtweit</button>
       </div>
     </div>
     <div>
       <div class="filter-group-title">Anlass</div>
       <div class="filter-tags">
-        <span class="tag" data-filter="anlass" data-label="Kita-Anmeldung" data-val="Kita-Anmeldung">Kita-Anmeldung</span>
-        <span class="tag" data-filter="anlass" data-label="Schulanmeldung" data-val="Schulanmeldung">Schulanmeldung</span>
-        <span class="tag" data-filter="anlass" data-label="Bauvorhaben" data-val="Bauvorhaben">Bauvorhaben</span>
-        <span class="tag" data-filter="anlass" data-label="Radverkehr" data-val="Radverkehr">Radverkehr</span>
-        <span class="tag" data-filter="anlass" data-label="Wohnen" data-val="Wohnen">Wohnen</span>
-        <span class="tag" data-filter="anlass" data-label="Haushalt" data-val="Haushalt">Haushalt</span>
+        <button class="tag" data-filter="anlass" data-label="Kita-Anmeldung" data-val="Kita-Anmeldung">Kita-Anmeldung</button>
+        <button class="tag" data-filter="anlass" data-label="Schulanmeldung" data-val="Schulanmeldung">Schulanmeldung</button>
+        <button class="tag" data-filter="anlass" data-label="Bauvorhaben" data-val="Bauvorhaben">Bauvorhaben</button>
+        <button class="tag" data-filter="anlass" data-label="Radverkehr" data-val="Radverkehr">Radverkehr</button>
+        <button class="tag" data-filter="anlass" data-label="Wohnen" data-val="Wohnen">Wohnen</button>
+        <button class="tag" data-filter="anlass" data-label="Haushalt" data-val="Haushalt">Haushalt</button>
       </div>
     </div>
   </div>
