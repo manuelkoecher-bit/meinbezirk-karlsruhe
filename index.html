@@ -211,6 +211,88 @@ color: var(–white);
 border-color: var(–black);
 }
 
+.tag.selected::after {
+content: ’ ✓’;
+font-size: 11px;
+opacity: 0.8;
+}
+
+/* AKTIVE FILTER ANZEIGE */
+.filter-active {
+display: none;
+margin-top: 16px;
+padding: 12px 16px;
+background: var(–white);
+border: 1px solid var(–black);
+border-radius: 2px;
+font-size: 13px;
+color: var(–dark);
+align-items: center;
+justify-content: space-between;
+gap: 12px;
+}
+
+.filter-active.visible { display: flex; }
+
+.filter-active-text { flex: 1; line-height: 1.6; }
+.filter-active-text span { font-weight: 500; }
+
+.filter-reset-btn {
+font-family: ‘Inter’, sans-serif;
+font-size: 12px;
+font-weight: 400;
+color: var(–mid);
+background: none;
+border: 1px solid var(–rule);
+border-radius: 2px;
+padding: 4px 12px;
+cursor: pointer;
+white-space: nowrap;
+transition: all 0.15s;
+}
+
+.filter-reset-btn:hover { border-color: var(–black); color: var(–black); }
+
+.tag.selected::before {
+content: ’✓ ’;
+font-size: 11px;
+}
+
+/* ACTIVE FILTER SUMMARY */
+.filter-summary {
+display: none;
+background: #f0f0ee;
+border: 1px solid var(–rule);
+border-radius: 2px;
+padding: 10px 16px;
+font-size: 13px;
+color: var(–mid);
+margin-bottom: 0;
+align-items: center;
+justify-content: space-between;
+gap: 12px;
+}
+
+.filter-summary.visible {
+display: flex;
+}
+
+.filter-summary strong { color: var(–dark); }
+
+.filter-reset {
+font-size: 12px;
+color: var(–mid);
+cursor: pointer;
+text-decoration: underline;
+white-space: nowrap;
+background: none;
+border: none;
+font-family: ‘Inter’, sans-serif;
+padding: 0;
+}
+
+.filter-reset:hover { color: var(–black); }
+
 /* FEED */
 .feed-section {
 border-top: 1px solid var(–rule);
@@ -447,7 +529,7 @@ footer { padding: 20px; flex-direction: column; }
 
 <section class="hero">
   <p class="hero-quote">
-    „Ich saß im Elternabend und die Schulleiterin erwähnte es beiläufig: dass sich die Anmelderegelungen für Grundschulen geändert haben. Seit September. Das stand im Beschluss. Ich hatte keine Ahnung."
+    „Jeden Monat tagt der Gemeinderat und entscheidet über Kitas, Radwege, Schulen, Mieten, Parks. Die Protokolle sind öffentlich — aber wer liest sie schon? MeinBezirk bringt diese Entscheidungen zu den Menschen, für die sie gemacht wurden.“
   </p>
   <h1>Was der Gemeinderat entscheidet —&thinsp;was Sie betrifft.</h1>
   <p>Karlsruhe trifft ständig Entscheidungen, die Ihren Alltag betreffen — neue Regeln, Fristen, Bauvorhaben, Kitaplätze, Radwege. MeinBezirk bringt diese Informationen zu Ihnen, gefiltert nach dem, was für Sie relevant ist. Keine PDFs. Kein Amtsdeutsch. Nur das, was zählt.</p>
@@ -516,6 +598,11 @@ footer { padding: 20px; flex-direction: column; }
         <span class="tag" data-filter="anlass" data-val="Haushalt">Haushalt</span>
       </div>
     </div>
+  </div>
+
+  <div class="filter-active" id="filterActive">
+    <div class="filter-active-text" id="filterActiveText"></div>
+    <button class="filter-reset-btn" onclick="resetFilters()">Filter zurücksetzen</button>
   </div>
 </section>
 
@@ -927,6 +1014,29 @@ footer { padding: 20px; flex-direction: column; }
       visible === total ? `${total} Einträge` : `${visible} von ${total} Einträgen`;
 
     document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+
+    // Filter-Zusammenfassung aktualisieren
+    const active = document.getElementById('filterActive');
+    const activeText = document.getElementById('filterActiveText');
+    const parts = [];
+    if (selected.lebenslage) parts.push(`Lebenslage: <span>${selected.lebenslage}</span>`);
+    if (selected.ort)        parts.push(`Stadtteil: <span>${selected.ort}</span>`);
+    if (selected.anlass)     parts.push(`Anlass: <span>${selected.anlass}</span>`);
+
+    if (parts.length > 0) {
+      activeText.innerHTML = `Filter aktiv — ${parts.join(' &nbsp;·&nbsp; ')} &nbsp;→ <strong>${visible} Meldung${visible !== 1 ? 'en' : ''}</strong>`;
+      active.classList.add('visible');
+    } else {
+      active.classList.remove('visible');
+    }
+  }
+
+  function resetFilters() {
+    selected.lebenslage = null;
+    selected.ort = null;
+    selected.anlass = null;
+    document.querySelectorAll('.tag').forEach(t => t.classList.remove('selected'));
+    applyFilters();
   }
 
   function subscribe() {
